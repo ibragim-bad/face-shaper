@@ -1,18 +1,11 @@
-import pickle
-import numpy as np
 from math import sqrt
 from math import atan
-import face_alignment
-from skimage import io
 import os
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 
 class GetFeatures():
-
-    # def __init__(self):
-    #     self.fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, flip_input=False, device='cpu')
 
     def norm(self, a):
         return (sqrt(a[0] * a[0] + a[1] * a[1]))

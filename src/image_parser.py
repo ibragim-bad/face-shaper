@@ -1,7 +1,6 @@
 from PIL import Image
 from scipy import ndimage
 from skimage import io
-import cv2
 import dlib
 from get_features import GetFeatures
 from get_model import get_model
