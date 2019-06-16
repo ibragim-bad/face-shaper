@@ -13,15 +13,28 @@ PATH = './sunglasses'
 
 def get_img_list(gname):
     if (gname == 'heart'):
-        return (os.path.join(PATH, 'wayfarer.png'))
+        return (os.path.join(PATH, 'w_deal.png'))
     if (gname == 'oblong'):
-        return (os.path.join(PATH, 'clubmaster.png'))
+        return (os.path.join(PATH, 'w_deal.png'))
     if (gname == 'oval'):
-        return (os.path.join(PATH, 'round.png'))
+        return (os.path.join(PATH, 'deal.png'))
     if (gname == 'round'):
-        return (os.path.join(PATH, 'wayfarer.png'))
+        return (os.path.join(PATH, 'w_deal.png'))
     if (gname == 'square'):
-        return (os.path.join(PATH, 'aviator.png'))
+        return (os.path.join(PATH, 'w_deal.png'))
+
+
+# def get_img_list(gname):
+#     if (gname == 'heart'):
+#         return (os.path.join(PATH, 'wayfarer.png'))
+#     if (gname == 'oblong'):
+#         return (os.path.join(PATH, 'clubmaster.png'))
+#     if (gname == 'oval'):
+#         return (os.path.join(PATH, 'round.png'))
+#     if (gname == 'round'):
+#         return (os.path.join(PATH, 'wayfarer.png'))
+#     if (gname == 'square'):
+#         return (os.path.join(PATH, 'aviator.png'))
 
 
 
