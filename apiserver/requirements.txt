@@ -1,0 +1,7 @@
+pillow
+cmake
+wheel
+scipy
+scikit-image
+dlib
+opencv-python
