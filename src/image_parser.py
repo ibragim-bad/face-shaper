@@ -2,11 +2,28 @@ from PIL import Image
 from scipy import ndimage
 from skimage import io
 import dlib
-from get_features import GetFeatures
-from get_model import get_model
+from src.get_features import GetFeatures
+from src.get_model import get_model
 from src.preproc import *
 import sys
 import os
+import glob
+
+PATH = './sunglasses'
+
+def get_img_list(gname):
+    if (gname == 'heart'):
+        return (os.path.join(PATH, 'wayfarer.png'))
+    if (gname == 'oblong'):
+        return (os.path.join(PATH, 'clubmaster.png'))
+    if (gname == 'oval'):
+        return (os.path.join(PATH, 'round.png'))
+    if (gname == 'round'):
+        return (os.path.join(PATH, 'wayfarer.png'))
+    if (gname == 'square'):
+        return (os.path.join(PATH, 'aviator.png'))
+
+
 
 PATH_DIR_GLASS = './'
 
@@ -77,16 +94,17 @@ class ImageDealer():
         # resize glasses to width of face and blend images
         face_width = w - x
         shapes = ['heart', 'oblong', 'oval', 'round', 'square']
-        glasses_files = [['specs.png'],['specs.png'],['specs.png'],
-                         ['specs.png'],['specs.png']]
-        glasses_dict = dict(zip(shapes, glasses_files))
+        # glasses_files = [['deal.png'],['deal.png'],['deal.png'],
+        #                  ['deal.png'],['deal.png']]
+        # glasses_dict = dict(zip(shapes, glasses_files))
         # resize_glasses
 
 
         shape_result = shapes[result]
+        glass_files = get_img_list(shape_result)
         path_dir = PATH_DIR_GLASS
-        path = os.path.join(path_dir, glasses_dict[shape_result][0])
-        glasses = cv2.imread(path, -1)
+        #path = os.path.join(path_dir, glasses_dict[shape_result][0])
+        glasses = cv2.imread(glass_files, -1)
         glasses_resize = resize(glasses, face_width)
 
         # Rotate glasses based on angle between eyes
@@ -101,5 +119,5 @@ class ImageDealer():
         img_copy[y + glass_trans:y + h5 + glass_trans, x:x + w5] = blend_glass3
 
         ioi = Image.fromarray(img_copy, 'RGB')
-        ioi.save('fil2.png')
+        ioi.save('result-{}'.format(file))
         return shape_result

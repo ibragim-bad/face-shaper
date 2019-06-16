@@ -1,10 +1,10 @@
 #!/usr/bin/python
 
 
-from image_parser import ImageDealer
+from src.image_parser import ImageDealer
 
 id = ImageDealer()
 
-filename = 'leo_r.jpg'
+filename = 'img_no_412.jpg'
 predict = id.parse_image(filename)
 print("Shape of face is {}".format(predict))
